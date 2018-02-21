@@ -1,0 +1,43 @@
+    <mat-card *ngIf="myTest" ngForm #myTestForm="ngForm">
+        <mat-card-title>MyTest Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="firstName"  class="required">First Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="firstName" type="text" [(ngModel)]="myTest.firstName"  required   minlength="2" name="firstName" #firstName="ngModel"/>
+                    
+                    <mat-error *ngIf="!firstName.valid && firstName.dirty && firstName.errors['required']">
+                        First Name is required.
+                    </mat-error>
+                    <mat-error *ngIf="!firstName.valid && firstName.dirty && firstName.errors['minlength']">
+                        First Name must have at least 2 characters.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="lastName" >Last Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="lastName" type="text" [(ngModel)]="myTest.lastName"   minlength="2" name="lastName" #lastName="ngModel"/>
+                    
+                    <mat-error *ngIf="!lastName.valid && lastName.dirty && lastName.errors['minlength']">
+                        Last Name must have at least 2 characters.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="dateOfJoining"  class="required">Date Of Joining</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container>
+                  <input matInput id="dateOfJoining" [matDatepicker]="dateOfJoiningPicker" [(ngModel)]="myTest.dateOfJoining"  required  name="dateOfJoining" #dateOfJoining="ngModel">
+                  <mat-datepicker-toggle matSuffix [for]="dateOfJoiningPicker"></mat-datepicker-toggle>
+                </mat-input-container>
+                <mat-datepicker #dateOfJoiningPicker></mat-datepicker>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!myTestForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

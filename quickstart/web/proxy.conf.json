@@ -1,0 +1,30 @@
+{
+  "/api": {
+    "target": "http://localhost:8081",
+    "secure": false
+  },
+  "/img": {
+    "target": "http://localhost:8081",
+    "secure": false
+  },
+  "/webjars": {
+    "target": "http://localhost:8081",
+    "secure": false
+  },
+  "/v2": {
+    "target": "http://localhost:8081",
+    "secure": false
+  },
+  "/swagger*": {
+    "target": "http://localhost:8081",
+    "secure": false
+  },
+  "/configuration/security": {
+    "target": "http://localhost:8081",
+    "secure": false
+  },
+  "/configuration/ui": {
+    "target": "http://localhost:8081",
+    "secure": false
+  }
+}

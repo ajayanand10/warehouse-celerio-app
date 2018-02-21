@@ -137,6 +137,17 @@ CREATE TABLE USE_CASE_3 (
 );
 COMMENT ON TABLE USE_CASE_3 IS 'USE_CASE_3 has a composite pk with one member being also an FK, just for demo';
 
+-- table created by ajay
+CREATE TABLE TEST (
+    id               int not null IDENTITY,
+    first_name          varchar(100) not null,
+    last_name           varchar(100),
+	date_of_joining 	date not null,
+	
+    primary key (id)
+);
+COMMENT ON TABLE TEST IS 'TEST has a autoincrementing pk, just for demo';
+
 
 INSERT INTO USER (id, login, password, email, is_enabled, version) VALUES (-1, 'admin', 'admin', 'admin@example.com', true, 1);
 

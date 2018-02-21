@@ -48,16 +48,16 @@
                 <columnConfig columnName="password" searchField="false" searchResult="false"/>
             </columnConfigs>
         </entityConfig>
-        <entityConfig tableName="PASSPORT">
+        <!--<entityConfig tableName="PASSPORT">
             <columnConfigs>
                 <columnConfig columnName="holder_id" associationDirection="BIDIRECTIONAL">
                     <oneToManyConfig var="passportHolder" />
-                    <inverseOneToOneConfig var="passport" /><!-- var that is generated on User entity side -->
+                    <inverseOneToOneConfig var="passport" />
                 </columnConfig>
             </columnConfigs>
         </entityConfig>
 
-        <entityConfig tableName="AUTHOR">
+         <entityConfig tableName="AUTHOR">
             <columnConfigs>
                 <columnConfig columnName="first_name" min="2" searchResult="true" displayOrder="3"/>
                 <columnConfig columnName="last_name" min="2" searchResult="true" displayOrder="2"/>
@@ -69,7 +69,7 @@
         <entityConfig tableName="BOOK">
             <columnConfigs>
                 <columnConfig columnName="author_id">
-                    <!-- will generate the one to many association on the Author side -->
+                    
                     <oneToManyConfig elementVar="book" var="books" orphanRemoval="true"/>
                 </columnConfig>
                 <columnConfig columnName="co_author_id" searchField="false" />
@@ -85,7 +85,7 @@
         <entityConfig tableName="PROJECT">
             <columnConfigs>
                 <columnConfig columnName="author_id">
-                    <!-- will generate the one to many association on the Author side -->
+                    
                     <oneToManyConfig elementVar="project" var="projects" orphanRemoval="true"/>
                 </columnConfig>
             </columnConfigs>
@@ -94,11 +94,20 @@
         <entityConfig tableName="USE_CASE_3">
             <columnConfigs>
                 <columnConfig columnName="id2">
-                    <!-- will generate the one to many association on the UseCase2 side -->
+                    
                     <oneToManyConfig var="useCase3s" orphanRemoval="true"/>
                 </columnConfig>
             </columnConfigs>
         </entityConfig>
+		
+		<entityConfig tableName="TEST">
+            <columnConfigs>
+                <columnConfig columnName="first_name" searchField="true" min="2" displayOrder="1"/>
+				<columnConfig columnName="last_name" searchField="true" min="2" displayOrder="2"/>
+				<columnConfig columnName="date_of_joining" searchField="true" displayOrder="3"/>
+                
+            </columnConfigs>
+        </entityConfig> -->
     </entityConfigs>
 
     <!-- CHANGE IT OR COMMENT IT IF YOU USE YOUR OWN DATABASE -->
