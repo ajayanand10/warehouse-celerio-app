@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.jaxio.com/schema/celerio">
-  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/celerio" user="postgres" password="admin" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
+  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-184-73-202-79.compute-1.amazonaws.com:5432/d55botu3fu1tpd?sslmode=require" user="ojcaijlsrjhcnu" password="08a918fa59fbbc7c17ee0cb409e302cff5d7fb4fe4a2419b5bd8bc3091f3d67a" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
     <tableNamePatterns/>
     <tableTypes>
       <tableType>TABLE</tableType>
     </tableTypes>
   </jdbcConnectivity>
-  <databaseInfo databaseMajorVersion="10" databaseMinorVersion="2" databaseProductName="PostgreSQL" databaseProductVersion="10.2" driverMajorVersion="42" driverMinorVersion="2" driverName="PostgreSQL JDBC Driver" driverVersion="42.2.1" extraInfo=""/>
+  <databaseInfo databaseMajorVersion="10" databaseMinorVersion="2" databaseProductName="PostgreSQL" databaseProductVersion="10.2 (Ubuntu 10.2-1.pgdg14.04+1)" driverMajorVersion="42" driverMinorVersion="2" driverName="PostgreSQL JDBC Driver" driverVersion="42.2.1" extraInfo=""/>
   <tables>
     <table name="bookmark" type="TABLE" schemaName="public">
       <columns>
@@ -26,6 +26,41 @@
         <importedKey fkColumnName="user_id" fkName="bookmark_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
         <importedKey fkColumnName="warehouse_id" fkName="bookmark_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
       </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="databasechangelog" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="255" type="VARCHAR"/>
+        <column name="author" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
+        <column name="filename" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="dateexecuted" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="4" size="29" type="TIMESTAMP"/>
+        <column name="orderexecuted" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="exectype" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="10" type="VARCHAR"/>
+        <column name="md5sum" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="35" type="VARCHAR"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="255" type="VARCHAR"/>
+        <column name="comments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="255" type="VARCHAR"/>
+        <column name="tag" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="255" type="VARCHAR"/>
+        <column name="liquibase" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="20" type="VARCHAR"/>
+        <column name="contexts" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="255" type="VARCHAR"/>
+        <column name="labels" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="255" type="VARCHAR"/>
+      </columns>
+      <indexes/>
+      <importedKeys/>
+      <primaryKeys/>
+    </table>
+    <table name="databasechangeloglock" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="locked" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="1" type="BIT"/>
+        <column name="lockgranted" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="3" size="29" type="TIMESTAMP"/>
+        <column name="lockedby" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="pk_databasechangeloglock" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
       <primaryKeys>
         <primaryKey>id</primaryKey>
       </primaryKeys>
@@ -128,6 +163,19 @@
       <importedKeys>
         <importedKey fkColumnName="warehouse_id" fkName="rate_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
       </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="record" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('record_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="data" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="pk_record" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
       <primaryKeys>
         <primaryKey>id</primaryKey>
       </primaryKeys>

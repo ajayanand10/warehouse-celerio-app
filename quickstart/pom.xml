@@ -63,7 +63,8 @@
         <sql.create.script>app-mysql-create.sql</sql.create.script> -->
         
 		<!-- POSTGRES DATABASE SETTINGS -->
-        <jdbc.groupId>org.postgresql</jdbc.groupId>
+		<!-- Local -->
+        <!-- <jdbc.groupId>org.postgresql</jdbc.groupId>
         <jdbc.artifactId>postgresql</jdbc.artifactId>
         <jdbc.version>42.2.1</jdbc.version>
         <jdbc.driver>org.postgresql.Driver</jdbc.driver>
@@ -73,7 +74,20 @@
         <jdbc.schema></jdbc.schema>
         <jdbc.catalog></jdbc.catalog>
         <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
-        <!-- <hbm2ddl.auto>update</hbm2ddl.auto> -->
+        <sql-maven-plugin.delimiter>;</sql-maven-plugin.delimiter>
+        <sql.create.script>app-postgres-create.sql</sql.create.script> -->
+        
+        <!-- Heroku -->
+        <jdbc.groupId>org.postgresql</jdbc.groupId>
+        <jdbc.artifactId>postgresql</jdbc.artifactId>
+        <jdbc.version>42.2.1</jdbc.version>
+        <jdbc.driver>org.postgresql.Driver</jdbc.driver>
+        <jdbc.url>jdbc:postgresql://ec2-184-73-202-79.compute-1.amazonaws.com:5432/d55botu3fu1tpd?sslmode=require</jdbc.url>
+        <jdbc.user>ojcaijlsrjhcnu</jdbc.user>
+        <jdbc.password>08a918fa59fbbc7c17ee0cb409e302cff5d7fb4fe4a2419b5bd8bc3091f3d67a</jdbc.password>
+        <jdbc.schema></jdbc.schema>
+        <jdbc.catalog></jdbc.catalog>
+        <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
         <sql-maven-plugin.delimiter>;</sql-maven-plugin.delimiter>
         <sql.create.script>app-postgres-create.sql</sql.create.script>
 

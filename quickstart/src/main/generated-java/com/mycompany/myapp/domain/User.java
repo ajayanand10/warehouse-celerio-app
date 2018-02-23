@@ -394,7 +394,7 @@ public class User implements Identifiable<Integer>, Serializable {
      */
     public User withDefaults() {
         setIsEnabled(true);
-        setCivility(Civility.'MR'::bpchar);
+        setCivility(Civility.MR);
         return this;
     }
 
