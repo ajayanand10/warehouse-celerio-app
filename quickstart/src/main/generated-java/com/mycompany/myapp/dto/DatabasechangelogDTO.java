@@ -20,17 +20,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class DatabasechangelogDTO {
     public String id;
     public String author;
-    public String filename;
-    public Instant dateexecuted;
-    public Integer orderexecuted;
-    public String exectype;
-    public String md5sum;
-    public String description;
     public String comments;
-    public String tag;
-    public String liquibase;
     public String contexts;
+    public Instant dateexecuted;
+    public String description;
+    public String exectype;
+    public String filename;
     public String labels;
+    public String liquibase;
+    public String md5sum;
+    public Integer orderexecuted;
+    public String tag;
 
     @JsonIgnore
     public boolean isIdSet() {

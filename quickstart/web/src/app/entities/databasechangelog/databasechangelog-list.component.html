@@ -21,58 +21,10 @@
             </div>
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2">
-                    <label for="filename">Filename</label>
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText id="filename" [(ngModel)]="example.filename" name="filename" #filename="ngModel"/>
-                </div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    <label for="exectype">Exectype</label>
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText id="exectype" [(ngModel)]="example.exectype" name="exectype" #exectype="ngModel"/>
-                </div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    <label for="md5sum">Md5sum</label>
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText id="md5sum" [(ngModel)]="example.md5sum" name="md5sum" #md5sum="ngModel"/>
-                </div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    <label for="description">Description</label>
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText id="description" [(ngModel)]="example.description" name="description" #description="ngModel"/>
-                </div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
                     <label for="comments">Comments</label>
                 </div>
                 <div class="ui-grid-col-6">
                     <input pInputText id="comments" [(ngModel)]="example.comments" name="comments" #comments="ngModel"/>
-                </div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    <label for="tag">Tag</label>
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText id="tag" [(ngModel)]="example.tag" name="tag" #tag="ngModel"/>
-                </div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    <label for="liquibase">Liquibase</label>
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText id="liquibase" [(ngModel)]="example.liquibase" name="liquibase" #liquibase="ngModel"/>
                 </div>
             </div>
             <div class="ui-grid-row">
@@ -85,10 +37,58 @@
             </div>
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2">
+                    <label for="description">Description</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="description" [(ngModel)]="example.description" name="description" #description="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="exectype">Exectype</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="exectype" [(ngModel)]="example.exectype" name="exectype" #exectype="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="filename">Filename</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="filename" [(ngModel)]="example.filename" name="filename" #filename="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
                     <label for="labels">Labels</label>
                 </div>
                 <div class="ui-grid-col-6">
                     <input pInputText id="labels" [(ngModel)]="example.labels" name="labels" #labels="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="liquibase">Liquibase</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="liquibase" [(ngModel)]="example.liquibase" name="liquibase" #liquibase="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="md5sum">Md5sum</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="md5sum" [(ngModel)]="example.md5sum" name="md5sum" #md5sum="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="tag">Tag</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="tag" [(ngModel)]="example.tag" name="tag" #tag="ngModel"/>
                 </div>
             </div>
         </div>
@@ -119,13 +119,13 @@
         </p-column>
         <p-column field="author" header="Author" sortable="true">
         </p-column>
-        <p-column field="filename" header="Filename" sortable="true">
+        <p-column field="comments" header="Comments" sortable="true">
+        </p-column>
+        <p-column field="contexts" header="Contexts" sortable="true">
         </p-column>
         <p-column field="dateexecuted" header="Dateexecuted" sortable="true">
         </p-column>
-        <p-column field="orderexecuted" header="Orderexecuted" sortable="true">
-        </p-column>
-        <p-column field="exectype" header="Exectype" sortable="true">
+        <p-column field="description" header="Description" sortable="true">
         </p-column>
         <p-column styleClass="col-icon">
             <ng-template let-databasechangelog="rowData" pTemplate="body">

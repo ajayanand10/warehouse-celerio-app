@@ -82,9 +82,9 @@
         <jdbc.artifactId>postgresql</jdbc.artifactId>
         <jdbc.version>42.2.1</jdbc.version>
         <jdbc.driver>org.postgresql.Driver</jdbc.driver>
-        <jdbc.url>jdbc:postgresql://ec2-184-73-202-79.compute-1.amazonaws.com:5432/d55botu3fu1tpd?sslmode=require</jdbc.url>
-        <jdbc.user>ojcaijlsrjhcnu</jdbc.user>
-        <jdbc.password>08a918fa59fbbc7c17ee0cb409e302cff5d7fb4fe4a2419b5bd8bc3091f3d67a</jdbc.password>
+        <jdbc.url>jdbc:postgresql://ec2-184-73-202-179.compute-1.amazonaws.com:5432/ddk3474pq7ubr8?sslmode=require</jdbc.url>
+        <jdbc.user>gjkwdpbvpdlxif</jdbc.user>
+        <jdbc.password>e21cf379b73fdbc6a25c9e94181bdf50b2df6e5a1a2f1344d0478a5fc855e309</jdbc.password>
         <jdbc.schema></jdbc.schema>
         <jdbc.catalog></jdbc.catalog>
         <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>

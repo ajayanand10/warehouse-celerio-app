@@ -35,8 +35,8 @@ public class Databasechangeloglock implements Identifiable<Integer>, Serializabl
     // Raw attributes
     private Integer id;
     private Boolean locked;
-    private Instant lockgranted;
     private String lockedby;
+    private Instant lockgranted;
 
     @Override
     public String entityClassName() {
@@ -85,21 +85,6 @@ public class Databasechangeloglock implements Identifiable<Integer>, Serializabl
         setLocked(locked);
         return this;
     }
-    // -- [lockgranted] ------------------------
-
-    @Column(name = "lockgranted", length = 29)
-    public Instant getLockgranted() {
-        return lockgranted;
-    }
-
-    public void setLockgranted(Instant lockgranted) {
-        this.lockgranted = lockgranted;
-    }
-
-    public Databasechangeloglock lockgranted(Instant lockgranted) {
-        setLockgranted(lockgranted);
-        return this;
-    }
     // -- [lockedby] ------------------------
 
     @Size(max = 255)
@@ -114,6 +99,21 @@ public class Databasechangeloglock implements Identifiable<Integer>, Serializabl
 
     public Databasechangeloglock lockedby(String lockedby) {
         setLockedby(lockedby);
+        return this;
+    }
+    // -- [lockgranted] ------------------------
+
+    @Column(name = "lockgranted", length = 29)
+    public Instant getLockgranted() {
+        return lockgranted;
+    }
+
+    public void setLockgranted(Instant lockgranted) {
+        this.lockgranted = lockgranted;
+    }
+
+    public Databasechangeloglock lockgranted(Instant lockgranted) {
+        setLockgranted(lockgranted);
         return this;
     }
 
@@ -148,8 +148,8 @@ public class Databasechangeloglock implements Identifiable<Integer>, Serializabl
         return MoreObjects.toStringHelper(this) //
                 .add("id", getId()) //
                 .add("locked", getLocked()) //
-                .add("lockgranted", getLockgranted()) //
                 .add("lockedby", getLockedby()) //
+                .add("lockgranted", getLockgranted()) //
                 .toString();
     }
 }

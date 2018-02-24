@@ -13,7 +13,7 @@ import {Databasechangelog} from './databasechangelog';
 
 @Component({
 	template: `
-        {{ databasechangelog?.author }} {{ databasechangelog?.filename }} {{ databasechangelog?.exectype }} 	`,
+        {{ databasechangelog?.author }} {{ databasechangelog?.exectype }} {{ databasechangelog?.filename }} 	`,
 	selector: 'databasechangelog-line',
 })
 export class DatabasechangelogLineComponent {

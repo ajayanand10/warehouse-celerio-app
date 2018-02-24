@@ -13,18 +13,18 @@ export class Databasechangeloglock {
     // Raw attributes
     id : number;
     locked : boolean;
-    lockgranted : Date;
     lockedby : string;
+    lockgranted : Date;
 
 
     constructor(json? : any) {
         if (json != null) {
             this.id = json.id;
             this.locked = json.locked;
+            this.lockedby = json.lockedby;
             if (json.lockgranted != null) {
                 this.lockgranted = new Date(json.lockgranted);
             }
-            this.lockedby = json.lockedby;
         }
     }
 

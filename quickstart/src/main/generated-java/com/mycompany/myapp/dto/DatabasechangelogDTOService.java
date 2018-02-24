@@ -56,15 +56,15 @@ public class DatabasechangelogDTOService {
             ExampleMatcher matcher = ExampleMatcher.matching() //
                     .withMatcher(Databasechangelog_.id.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Databasechangelog_.author.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.filename.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.exectype.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.md5sum.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.description.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Databasechangelog_.comments.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.tag.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.liquibase.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Databasechangelog_.contexts.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Databasechangelog_.labels.getName(), match -> match.ignoreCase().startsWith());
+                    .withMatcher(Databasechangelog_.description.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Databasechangelog_.exectype.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Databasechangelog_.filename.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Databasechangelog_.labels.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Databasechangelog_.liquibase.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Databasechangelog_.md5sum.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Databasechangelog_.tag.getName(), match -> match.ignoreCase().startsWith());
 
             example = Example.of(databasechangelog, matcher);
         }
@@ -105,27 +105,27 @@ public class DatabasechangelogDTOService {
 
         databasechangelog.setAuthor(dto.author);
 
-        databasechangelog.setFilename(dto.filename);
-
-        databasechangelog.setDateexecuted(dto.dateexecuted);
-
-        databasechangelog.setOrderexecuted(dto.orderexecuted);
-
-        databasechangelog.setExectype(dto.exectype);
-
-        databasechangelog.setMd5sum(dto.md5sum);
-
-        databasechangelog.setDescription(dto.description);
-
         databasechangelog.setComments(dto.comments);
-
-        databasechangelog.setTag(dto.tag);
-
-        databasechangelog.setLiquibase(dto.liquibase);
 
         databasechangelog.setContexts(dto.contexts);
 
+        databasechangelog.setDateexecuted(dto.dateexecuted);
+
+        databasechangelog.setDescription(dto.description);
+
+        databasechangelog.setExectype(dto.exectype);
+
+        databasechangelog.setFilename(dto.filename);
+
         databasechangelog.setLabels(dto.labels);
+
+        databasechangelog.setLiquibase(dto.liquibase);
+
+        databasechangelog.setMd5sum(dto.md5sum);
+
+        databasechangelog.setOrderexecuted(dto.orderexecuted);
+
+        databasechangelog.setTag(dto.tag);
 
         return toDTO(databasechangelogRepository.save(databasechangelog));
     }
@@ -155,17 +155,17 @@ public class DatabasechangelogDTOService {
 
         dto.id = databasechangelog.getId();
         dto.author = databasechangelog.getAuthor();
-        dto.filename = databasechangelog.getFilename();
-        dto.dateexecuted = databasechangelog.getDateexecuted();
-        dto.orderexecuted = databasechangelog.getOrderexecuted();
-        dto.exectype = databasechangelog.getExectype();
-        dto.md5sum = databasechangelog.getMd5sum();
-        dto.description = databasechangelog.getDescription();
         dto.comments = databasechangelog.getComments();
-        dto.tag = databasechangelog.getTag();
-        dto.liquibase = databasechangelog.getLiquibase();
         dto.contexts = databasechangelog.getContexts();
+        dto.dateexecuted = databasechangelog.getDateexecuted();
+        dto.description = databasechangelog.getDescription();
+        dto.exectype = databasechangelog.getExectype();
+        dto.filename = databasechangelog.getFilename();
         dto.labels = databasechangelog.getLabels();
+        dto.liquibase = databasechangelog.getLiquibase();
+        dto.md5sum = databasechangelog.getMd5sum();
+        dto.orderexecuted = databasechangelog.getOrderexecuted();
+        dto.tag = databasechangelog.getTag();
         if (depth-- > 0) {
         }
 
@@ -193,17 +193,17 @@ public class DatabasechangelogDTOService {
 
         databasechangelog.setId(dto.id);
         databasechangelog.setAuthor(dto.author);
-        databasechangelog.setFilename(dto.filename);
-        databasechangelog.setDateexecuted(dto.dateexecuted);
-        databasechangelog.setOrderexecuted(dto.orderexecuted);
-        databasechangelog.setExectype(dto.exectype);
-        databasechangelog.setMd5sum(dto.md5sum);
-        databasechangelog.setDescription(dto.description);
         databasechangelog.setComments(dto.comments);
-        databasechangelog.setTag(dto.tag);
-        databasechangelog.setLiquibase(dto.liquibase);
         databasechangelog.setContexts(dto.contexts);
+        databasechangelog.setDateexecuted(dto.dateexecuted);
+        databasechangelog.setDescription(dto.description);
+        databasechangelog.setExectype(dto.exectype);
+        databasechangelog.setFilename(dto.filename);
         databasechangelog.setLabels(dto.labels);
+        databasechangelog.setLiquibase(dto.liquibase);
+        databasechangelog.setMd5sum(dto.md5sum);
+        databasechangelog.setOrderexecuted(dto.orderexecuted);
+        databasechangelog.setTag(dto.tag);
         if (depth-- > 0) {
         }
 

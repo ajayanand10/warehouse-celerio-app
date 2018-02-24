@@ -95,9 +95,9 @@ public class DatabasechangeloglockDTOService {
 
         databasechangeloglock.setLocked(dto.locked);
 
-        databasechangeloglock.setLockgranted(dto.lockgranted);
-
         databasechangeloglock.setLockedby(dto.lockedby);
+
+        databasechangeloglock.setLockgranted(dto.lockgranted);
 
         return toDTO(databasechangeloglockRepository.save(databasechangeloglock));
     }
@@ -127,8 +127,8 @@ public class DatabasechangeloglockDTOService {
 
         dto.id = databasechangeloglock.getId();
         dto.locked = databasechangeloglock.getLocked();
-        dto.lockgranted = databasechangeloglock.getLockgranted();
         dto.lockedby = databasechangeloglock.getLockedby();
+        dto.lockgranted = databasechangeloglock.getLockgranted();
         if (depth-- > 0) {
         }
 
@@ -156,8 +156,8 @@ public class DatabasechangeloglockDTOService {
 
         databasechangeloglock.setId(dto.id);
         databasechangeloglock.setLocked(dto.locked);
-        databasechangeloglock.setLockgranted(dto.lockgranted);
         databasechangeloglock.setLockedby(dto.lockedby);
+        databasechangeloglock.setLockgranted(dto.lockgranted);
         if (depth-- > 0) {
         }
 

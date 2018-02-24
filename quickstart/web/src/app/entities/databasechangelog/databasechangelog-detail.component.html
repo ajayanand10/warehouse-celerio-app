@@ -22,28 +22,29 @@
                     </mat-error>
                 </mat-input-container>
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="filename"  class="required">Filename</label></div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="comments" >Comments</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
-                    <textarea matInput id="filename" [(ngModel)]="databasechangelog.filename"  required   autoResize="true" name="filename" #filename="ngModel"></textarea>
+                    <textarea matInput id="comments" [(ngModel)]="databasechangelog.comments"   autoResize="true" name="comments" #comments="ngModel"></textarea>
                     
-                    <mat-error *ngIf="!filename.valid && filename.dirty && filename.errors['required']">
-                        Filename is required.
-                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="contexts" >Contexts</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="contexts" [(ngModel)]="databasechangelog.contexts"   autoResize="true" name="contexts" #contexts="ngModel"></textarea>
+                    
                 </mat-input-container>
                 </div>
                  <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="dateexecuted"  class="required">Dateexecuted</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <p-calendar [(ngModel)]="databasechangelog.dateexecuted" dateFormat="yy-mm-dd" showTime="true" [ngModelOptions]="{standalone: true}"></p-calendar>
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="orderexecuted"  class="required">Orderexecuted</label></div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
-                    <input matInput id="orderexecuted" type="number" [(ngModel)]="databasechangelog.orderexecuted"  required  name="orderexecuted" #orderexecuted="ngModel" />
+                    <textarea matInput id="description" [(ngModel)]="databasechangelog.description"   autoResize="true" name="description" #description="ngModel"></textarea>
                     
-                    <mat-error *ngIf="!orderexecuted.valid && orderexecuted.dirty && orderexecuted.errors['required']">
-                        Orderexecuted is required.
-                    </mat-error>
                 </mat-input-container>
                 </div>
                  <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="exectype"  class="required">Exectype</label></div>
@@ -56,31 +57,20 @@
                     </mat-error>
                 </mat-input-container>
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="md5sum" >Md5sum</label></div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="filename"  class="required">Filename</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
-                    <input matInput id="md5sum" type="text" [(ngModel)]="databasechangelog.md5sum"   name="md5sum" #md5sum="ngModel"/>
+                    <textarea matInput id="filename" [(ngModel)]="databasechangelog.filename"  required   autoResize="true" name="filename" #filename="ngModel"></textarea>
                     
+                    <mat-error *ngIf="!filename.valid && filename.dirty && filename.errors['required']">
+                        Filename is required.
+                    </mat-error>
                 </mat-input-container>
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="labels" >Labels</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
-                    <textarea matInput id="description" [(ngModel)]="databasechangelog.description"   autoResize="true" name="description" #description="ngModel"></textarea>
-                    
-                </mat-input-container>
-                </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="comments" >Comments</label></div>
-                <div class="ui-g-12 ui-md-10 ui-lg-5">
-                <mat-input-container style="width: 90%">
-                    <textarea matInput id="comments" [(ngModel)]="databasechangelog.comments"   autoResize="true" name="comments" #comments="ngModel"></textarea>
-                    
-                </mat-input-container>
-                </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="tag" >Tag</label></div>
-                <div class="ui-g-12 ui-md-10 ui-lg-5">
-                <mat-input-container style="width: 90%">
-                    <textarea matInput id="tag" [(ngModel)]="databasechangelog.tag"   autoResize="true" name="tag" #tag="ngModel"></textarea>
+                    <textarea matInput id="labels" [(ngModel)]="databasechangelog.labels"   autoResize="true" name="labels" #labels="ngModel"></textarea>
                     
                 </mat-input-container>
                 </div>
@@ -91,17 +81,27 @@
                     
                 </mat-input-container>
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="contexts" >Contexts</label></div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="md5sum" >Md5sum</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
-                    <textarea matInput id="contexts" [(ngModel)]="databasechangelog.contexts"   autoResize="true" name="contexts" #contexts="ngModel"></textarea>
+                    <input matInput id="md5sum" type="text" [(ngModel)]="databasechangelog.md5sum"   name="md5sum" #md5sum="ngModel"/>
                     
                 </mat-input-container>
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="labels" >Labels</label></div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="orderexecuted"  class="required">Orderexecuted</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
-                    <textarea matInput id="labels" [(ngModel)]="databasechangelog.labels"   autoResize="true" name="labels" #labels="ngModel"></textarea>
+                    <input matInput id="orderexecuted" type="number" [(ngModel)]="databasechangelog.orderexecuted"  required  name="orderexecuted" #orderexecuted="ngModel" />
+                    
+                    <mat-error *ngIf="!orderexecuted.valid && orderexecuted.dirty && orderexecuted.errors['required']">
+                        Orderexecuted is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="tag" >Tag</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="tag" [(ngModel)]="databasechangelog.tag"   autoResize="true" name="tag" #tag="ngModel"></textarea>
                     
                 </mat-input-container>
                 </div>

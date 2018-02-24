@@ -16,16 +16,16 @@
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <p-triStateCheckbox [(ngModel)]="databasechangeloglock.locked" name="locked"></p-triStateCheckbox>{{databasechangeloglock.locked}}
                 </div>
-                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="lockgranted" >Lockgranted</label></div>
-                <div class="ui-g-12 ui-md-10 ui-lg-5">
-                <p-calendar [(ngModel)]="databasechangeloglock.lockgranted" dateFormat="yy-mm-dd" showTime="true" [ngModelOptions]="{standalone: true}"></p-calendar>
-                </div>
                  <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="lockedby" >Lockedby</label></div>
                 <div class="ui-g-12 ui-md-10 ui-lg-5">
                 <mat-input-container style="width: 90%">
                     <textarea matInput id="lockedby" [(ngModel)]="databasechangeloglock.lockedby"   autoResize="true" name="lockedby" #lockedby="ngModel"></textarea>
                     
                 </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="lockgranted" >Lockgranted</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <p-calendar [(ngModel)]="databasechangeloglock.lockgranted" dateFormat="yy-mm-dd" showTime="true" [ngModelOptions]="{standalone: true}"></p-calendar>
                 </div>
           </div>
         </mat-card-content>

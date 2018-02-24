@@ -37,17 +37,17 @@ public class Databasechangelog implements Identifiable<String>, Serializable {
     // Raw attributes
     private String id;
     private String author;
-    private String filename;
-    private Instant dateexecuted;
-    private Integer orderexecuted;
-    private String exectype;
-    private String md5sum;
-    private String description;
     private String comments;
-    private String tag;
-    private String liquibase;
     private String contexts;
+    private Instant dateexecuted;
+    private String description;
+    private String exectype;
+    private String filename;
     private String labels;
+    private String liquibase;
+    private String md5sum;
+    private Integer orderexecuted;
+    private String tag;
 
     @Override
     public String entityClassName() {
@@ -97,21 +97,36 @@ public class Databasechangelog implements Identifiable<String>, Serializable {
         setAuthor(author);
         return this;
     }
-    // -- [filename] ------------------------
+    // -- [comments] ------------------------
 
-    @NotEmpty
     @Size(max = 255)
-    @Column(name = "filename", nullable = false)
-    public String getFilename() {
-        return filename;
+    @Column(name = "comments")
+    public String getComments() {
+        return comments;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
-    public Databasechangelog filename(String filename) {
-        setFilename(filename);
+    public Databasechangelog comments(String comments) {
+        setComments(comments);
+        return this;
+    }
+    // -- [contexts] ------------------------
+
+    @Size(max = 255)
+    @Column(name = "contexts")
+    public String getContexts() {
+        return contexts;
+    }
+
+    public void setContexts(String contexts) {
+        this.contexts = contexts;
+    }
+
+    public Databasechangelog contexts(String contexts) {
+        setContexts(contexts);
         return this;
     }
     // -- [dateexecuted] ------------------------
@@ -130,21 +145,20 @@ public class Databasechangelog implements Identifiable<String>, Serializable {
         setDateexecuted(dateexecuted);
         return this;
     }
-    // -- [orderexecuted] ------------------------
+    // -- [description] ------------------------
 
-    @Digits(integer = 10, fraction = 0)
-    @NotNull
-    @Column(name = "orderexecuted", nullable = false, precision = 10)
-    public Integer getOrderexecuted() {
-        return orderexecuted;
+    @Size(max = 255)
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setOrderexecuted(Integer orderexecuted) {
-        this.orderexecuted = orderexecuted;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Databasechangelog orderexecuted(Integer orderexecuted) {
-        setOrderexecuted(orderexecuted);
+    public Databasechangelog description(String description) {
+        setDescription(description);
         return this;
     }
     // -- [exectype] ------------------------
@@ -164,68 +178,37 @@ public class Databasechangelog implements Identifiable<String>, Serializable {
         setExectype(exectype);
         return this;
     }
-    // -- [md5sum] ------------------------
+    // -- [filename] ------------------------
 
-    @Size(max = 35)
-    @Column(name = "md5sum", length = 35)
-    public String getMd5sum() {
-        return md5sum;
+    @NotEmpty
+    @Size(max = 255)
+    @Column(name = "filename", nullable = false)
+    public String getFilename() {
+        return filename;
     }
 
-    public void setMd5sum(String md5sum) {
-        this.md5sum = md5sum;
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
-    public Databasechangelog md5sum(String md5sum) {
-        setMd5sum(md5sum);
+    public Databasechangelog filename(String filename) {
+        setFilename(filename);
         return this;
     }
-    // -- [description] ------------------------
+    // -- [labels] ------------------------
 
     @Size(max = 255)
-    @Column(name = "description")
-    public String getDescription() {
-        return description;
+    @Column(name = "labels")
+    public String getLabels() {
+        return labels;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLabels(String labels) {
+        this.labels = labels;
     }
 
-    public Databasechangelog description(String description) {
-        setDescription(description);
-        return this;
-    }
-    // -- [comments] ------------------------
-
-    @Size(max = 255)
-    @Column(name = "comments")
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public Databasechangelog comments(String comments) {
-        setComments(comments);
-        return this;
-    }
-    // -- [tag] ------------------------
-
-    @Size(max = 255)
-    @Column(name = "tag")
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public Databasechangelog tag(String tag) {
-        setTag(tag);
+    public Databasechangelog labels(String labels) {
+        setLabels(labels);
         return this;
     }
     // -- [liquibase] ------------------------
@@ -244,36 +227,53 @@ public class Databasechangelog implements Identifiable<String>, Serializable {
         setLiquibase(liquibase);
         return this;
     }
-    // -- [contexts] ------------------------
+    // -- [md5sum] ------------------------
 
-    @Size(max = 255)
-    @Column(name = "contexts")
-    public String getContexts() {
-        return contexts;
+    @Size(max = 35)
+    @Column(name = "md5sum", length = 35)
+    public String getMd5sum() {
+        return md5sum;
     }
 
-    public void setContexts(String contexts) {
-        this.contexts = contexts;
+    public void setMd5sum(String md5sum) {
+        this.md5sum = md5sum;
     }
 
-    public Databasechangelog contexts(String contexts) {
-        setContexts(contexts);
+    public Databasechangelog md5sum(String md5sum) {
+        setMd5sum(md5sum);
         return this;
     }
-    // -- [labels] ------------------------
+    // -- [orderexecuted] ------------------------
+
+    @Digits(integer = 10, fraction = 0)
+    @NotNull
+    @Column(name = "orderexecuted", nullable = false, precision = 10)
+    public Integer getOrderexecuted() {
+        return orderexecuted;
+    }
+
+    public void setOrderexecuted(Integer orderexecuted) {
+        this.orderexecuted = orderexecuted;
+    }
+
+    public Databasechangelog orderexecuted(Integer orderexecuted) {
+        setOrderexecuted(orderexecuted);
+        return this;
+    }
+    // -- [tag] ------------------------
 
     @Size(max = 255)
-    @Column(name = "labels")
-    public String getLabels() {
-        return labels;
+    @Column(name = "tag")
+    public String getTag() {
+        return tag;
     }
 
-    public void setLabels(String labels) {
-        this.labels = labels;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
-    public Databasechangelog labels(String labels) {
-        setLabels(labels);
+    public Databasechangelog tag(String tag) {
+        setTag(tag);
         return this;
     }
 
@@ -308,17 +308,17 @@ public class Databasechangelog implements Identifiable<String>, Serializable {
         return MoreObjects.toStringHelper(this) //
                 .add("id", getId()) //
                 .add("author", getAuthor()) //
-                .add("filename", getFilename()) //
-                .add("dateexecuted", getDateexecuted()) //
-                .add("orderexecuted", getOrderexecuted()) //
-                .add("exectype", getExectype()) //
-                .add("md5sum", getMd5sum()) //
-                .add("description", getDescription()) //
                 .add("comments", getComments()) //
-                .add("tag", getTag()) //
-                .add("liquibase", getLiquibase()) //
                 .add("contexts", getContexts()) //
+                .add("dateexecuted", getDateexecuted()) //
+                .add("description", getDescription()) //
+                .add("exectype", getExectype()) //
+                .add("filename", getFilename()) //
                 .add("labels", getLabels()) //
+                .add("liquibase", getLiquibase()) //
+                .add("md5sum", getMd5sum()) //
+                .add("orderexecuted", getOrderexecuted()) //
+                .add("tag", getTag()) //
                 .toString();
     }
 }

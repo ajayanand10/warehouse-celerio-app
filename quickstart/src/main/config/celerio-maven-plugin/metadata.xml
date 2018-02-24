@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.jaxio.com/schema/celerio">
-  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-184-73-202-79.compute-1.amazonaws.com:5432/d55botu3fu1tpd?sslmode=require" user="ojcaijlsrjhcnu" password="08a918fa59fbbc7c17ee0cb409e302cff5d7fb4fe4a2419b5bd8bc3091f3d67a" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
+  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-184-73-202-179.compute-1.amazonaws.com:5432/ddk3474pq7ubr8?sslmode=require" user="gjkwdpbvpdlxif" password="e21cf379b73fdbc6a25c9e94181bdf50b2df6e5a1a2f1344d0478a5fc855e309" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
     <tableNamePatterns/>
     <tableTypes>
       <tableType>TABLE</tableType>
@@ -8,6 +8,48 @@
   </jdbcConnectivity>
   <databaseInfo databaseMajorVersion="10" databaseMinorVersion="2" databaseProductName="PostgreSQL" databaseProductVersion="10.2 (Ubuntu 10.2-1.pgdg14.04+1)" driverMajorVersion="42" driverMinorVersion="2" driverName="PostgreSQL JDBC Driver" driverVersion="42.2.1" extraInfo=""/>
   <tables>
+    <table name="author" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('author_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="birth_date" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="13" type="DATE"/>
+        <column name="birth_date_time" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="3" size="29" type="TIMESTAMP"/>
+        <column name="civility" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="2" type="VARCHAR"/>
+        <column name="email" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="100" type="VARCHAR"/>
+        <column name="first_name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="100" type="VARCHAR"/>
+        <column name="last_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="100" type="VARCHAR"/>
+        <column name="favorite_author_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="author_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="book" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('book_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="best_seller" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="1" type="BIT"/>
+        <column name="extract_binary" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="10" type="BIGINT"/>
+        <column name="extract_content_type" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="100" type="VARCHAR"/>
+        <column name="extract_file_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="100" type="VARCHAR"/>
+        <column name="extract_size" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="19" type="BIGINT"/>
+        <column name="price" decimalDigits="2" autoIncrement="false" nullable="false" ordinalPosition="7" size="20" type="NUMERIC"/>
+        <column name="publication_date" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="13" type="DATE"/>
+        <column name="summary" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="255" type="VARCHAR"/>
+        <column name="title" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="10" size="100" type="VARCHAR"/>
+        <column name="author_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="11" size="10" type="INTEGER"/>
+        <column name="co_author_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="book_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
     <table name="bookmark" type="TABLE" schemaName="public">
       <columns>
         <column name="id" columnDef="nextval('bookmark_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
@@ -34,31 +76,35 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="255" type="VARCHAR"/>
         <column name="author" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
-        <column name="filename" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="255" type="VARCHAR"/>
-        <column name="dateexecuted" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="4" size="29" type="TIMESTAMP"/>
-        <column name="orderexecuted" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
-        <column name="exectype" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="10" type="VARCHAR"/>
-        <column name="md5sum" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="35" type="VARCHAR"/>
-        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="255" type="VARCHAR"/>
-        <column name="comments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="255" type="VARCHAR"/>
-        <column name="tag" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="255" type="VARCHAR"/>
-        <column name="liquibase" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="20" type="VARCHAR"/>
-        <column name="contexts" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="255" type="VARCHAR"/>
-        <column name="labels" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="255" type="VARCHAR"/>
+        <column name="comments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="contexts" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+        <column name="dateexecuted" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="255" type="VARCHAR"/>
+        <column name="exectype" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="7" size="10" type="VARCHAR"/>
+        <column name="filename" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="8" size="255" type="VARCHAR"/>
+        <column name="labels" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="255" type="VARCHAR"/>
+        <column name="liquibase" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="20" type="VARCHAR"/>
+        <column name="md5sum" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="35" type="VARCHAR"/>
+        <column name="orderexecuted" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="12" size="10" type="INTEGER"/>
+        <column name="tag" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="255" type="VARCHAR"/>
       </columns>
-      <indexes/>
+      <indexes>
+        <indexe columnName="id" indexName="databasechangelog_pkey" nonUnique="false"/>
+      </indexes>
       <importedKeys/>
-      <primaryKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
     </table>
     <table name="databasechangeloglock" type="TABLE" schemaName="public">
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
         <column name="locked" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="1" type="BIT"/>
-        <column name="lockgranted" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="3" size="29" type="TIMESTAMP"/>
-        <column name="lockedby" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+        <column name="lockedby" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="lockgranted" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="4" size="29" type="TIMESTAMP"/>
       </columns>
       <indexes>
-        <indexe columnName="id" indexName="pk_databasechangeloglock" nonUnique="false"/>
+        <indexe columnName="id" indexName="databasechangeloglock_pkey" nonUnique="false"/>
       </indexes>
       <importedKeys/>
       <primaryKeys>
@@ -142,6 +188,37 @@
         <primaryKey>id</primaryKey>
       </primaryKeys>
     </table>
+    <table name="passport" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('passport_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="expiration_date" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="13" type="DATE"/>
+        <column name="passport_number" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+        <column name="holder_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="passport_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="project" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('project_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+        <column name="open_source" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="1" type="BIT"/>
+        <column name="url" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="100" type="VARCHAR"/>
+        <column name="author_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="project_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
     <table name="rate" type="TABLE" schemaName="public">
       <columns>
         <column name="id" columnDef="nextval('rate_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
@@ -173,7 +250,7 @@
         <column name="data" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
       </columns>
       <indexes>
-        <indexe columnName="id" indexName="pk_record" nonUnique="false"/>
+        <indexe columnName="id" indexName="record_pkey" nonUnique="false"/>
       </indexes>
       <importedKeys/>
       <primaryKeys>
@@ -192,6 +269,66 @@
       <importedKeys/>
       <primaryKeys>
         <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="test" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('test_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="date_of_joining" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="13" type="DATE"/>
+        <column name="first_name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+        <column name="last_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="test_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="use_case_1" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id1" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="1" size="29" type="TIMESTAMP"/>
+        <column name="id2" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id1" indexName="use_case_1_pkey" nonUnique="false"/>
+        <indexe columnName="id2" indexName="use_case_1_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id1</primaryKey>
+        <primaryKey>id2</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="use_case_2" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="32" type="VARCHAR"/>
+        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="use_case_2_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="use_case_3" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id1" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="1" size="29" type="TIMESTAMP"/>
+        <column name="id2" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
+        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id1" indexName="use_case_3_pkey" nonUnique="false"/>
+        <indexe columnName="id2" indexName="use_case_3_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id1</primaryKey>
+        <primaryKey>id2</primaryKey>
       </primaryKeys>
     </table>
     <table name="user" type="TABLE" schemaName="public">

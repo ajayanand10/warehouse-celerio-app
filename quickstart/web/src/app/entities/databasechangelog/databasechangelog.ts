@@ -13,36 +13,36 @@ export class Databasechangelog {
     // Raw attributes
     id : string;
     author : string;
-    filename : string;
-    dateexecuted : Date;
-    orderexecuted : number;
-    exectype : string;
-    md5sum : string;
-    description : string;
     comments : string;
-    tag : string;
-    liquibase : string;
     contexts : string;
+    dateexecuted : Date;
+    description : string;
+    exectype : string;
+    filename : string;
     labels : string;
+    liquibase : string;
+    md5sum : string;
+    orderexecuted : number;
+    tag : string;
 
 
     constructor(json? : any) {
         if (json != null) {
             this.id = json.id;
             this.author = json.author;
-            this.filename = json.filename;
+            this.comments = json.comments;
+            this.contexts = json.contexts;
             if (json.dateexecuted != null) {
                 this.dateexecuted = new Date(json.dateexecuted);
             }
-            this.orderexecuted = json.orderexecuted;
-            this.exectype = json.exectype;
-            this.md5sum = json.md5sum;
             this.description = json.description;
-            this.comments = json.comments;
-            this.tag = json.tag;
-            this.liquibase = json.liquibase;
-            this.contexts = json.contexts;
+            this.exectype = json.exectype;
+            this.filename = json.filename;
             this.labels = json.labels;
+            this.liquibase = json.liquibase;
+            this.md5sum = json.md5sum;
+            this.orderexecuted = json.orderexecuted;
+            this.tag = json.tag;
         }
     }
 

@@ -21,15 +21,15 @@ public abstract class Databasechangelog_ {
     // Raw attributes
     public static volatile SingularAttribute<Databasechangelog, String> id;
     public static volatile SingularAttribute<Databasechangelog, String> author;
-    public static volatile SingularAttribute<Databasechangelog, String> filename;
-    public static volatile SingularAttribute<Databasechangelog, Instant> dateexecuted;
-    public static volatile SingularAttribute<Databasechangelog, Integer> orderexecuted;
-    public static volatile SingularAttribute<Databasechangelog, String> exectype;
-    public static volatile SingularAttribute<Databasechangelog, String> md5sum;
-    public static volatile SingularAttribute<Databasechangelog, String> description;
     public static volatile SingularAttribute<Databasechangelog, String> comments;
-    public static volatile SingularAttribute<Databasechangelog, String> tag;
-    public static volatile SingularAttribute<Databasechangelog, String> liquibase;
     public static volatile SingularAttribute<Databasechangelog, String> contexts;
+    public static volatile SingularAttribute<Databasechangelog, Instant> dateexecuted;
+    public static volatile SingularAttribute<Databasechangelog, String> description;
+    public static volatile SingularAttribute<Databasechangelog, String> exectype;
+    public static volatile SingularAttribute<Databasechangelog, String> filename;
     public static volatile SingularAttribute<Databasechangelog, String> labels;
+    public static volatile SingularAttribute<Databasechangelog, String> liquibase;
+    public static volatile SingularAttribute<Databasechangelog, String> md5sum;
+    public static volatile SingularAttribute<Databasechangelog, Integer> orderexecuted;
+    public static volatile SingularAttribute<Databasechangelog, String> tag;
 }

@@ -21,6 +21,6 @@ public abstract class Databasechangeloglock_ {
     // Raw attributes
     public static volatile SingularAttribute<Databasechangeloglock, Integer> id;
     public static volatile SingularAttribute<Databasechangeloglock, Boolean> locked;
-    public static volatile SingularAttribute<Databasechangeloglock, Instant> lockgranted;
     public static volatile SingularAttribute<Databasechangeloglock, String> lockedby;
+    public static volatile SingularAttribute<Databasechangeloglock, Instant> lockgranted;
 }

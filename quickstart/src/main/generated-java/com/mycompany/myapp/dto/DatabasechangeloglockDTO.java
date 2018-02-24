@@ -20,8 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class DatabasechangeloglockDTO {
     public Integer id;
     public Boolean locked;
-    public Instant lockgranted;
     public String lockedby;
+    public Instant lockgranted;
 
     @JsonIgnore
     public boolean isIdSet() {
